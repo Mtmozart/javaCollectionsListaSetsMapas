@@ -9,16 +9,17 @@ ArrayList<String> nome = new ArrayList<>();
 ```
 
 	##Métodos
-    nome.add("elemento"): adiciona o elemento no final da lista;
-    nome.addAll(outraLista): adiciona todos os elementos de outraLista no final da lista atual;
-    nome.get(i): retorna o elemento no índice i;
-    nome.indexOf("elemento"): retorna o índice da primeira ocorrência de "elemento" na lista;
-    nome.lastIndexOf("elemento"): retorna o índice da última ocorrência de "elemento" na lista;
-    nome.contains("elemento"): verifica se a lista contém "elemento";
-    nome.size(): retorna o número de elementos na lista;
-    nome.isEmpty(): verifica se a lista está vazia;
-    nome.clear(): remove todos os elementos da lista;
-    nome.set(i, "novoElemento"): substitui o elemento no índice i por "novoElemento".
+	
+ nome.add("elemento"): adiciona o elemento no final da lista;
+ nome.addAll(outraLista): adiciona todos os elementos de outraLista no final da lista atual;
+ nome.get(i): retorna o elemento no índice i;
+ nome.indexOf("elemento"): retorna o índice da primeira ocorrência de "elemento" na lista;
+ nome.lastIndexOf("elemento"): retorna o índice da última ocorrência de "elemento" na lista;
+ nome.contains("elemento"): verifica se a lista contém "elemento";
+ nome.size(): retorna o número de elementos na lista;
+ nome.isEmpty(): verifica se a lista está vazia;
+ nome.clear(): remove todos os elementos da lista;
+ nome.set(i, "novoElemento"): substitui o elemento no índice i por "novoElemento".
 
 Listas bonitinhas: utilizar o forEach, lembrando que sempre deve ser menor, pois <= daria IndexOutOfBoundsException
 ```Java
@@ -39,6 +40,35 @@ Classe para ordenar coleção Collections, ele ordena lexográficamente, também
 Collections.sort(nome);
 
 ```
+Em casos de objetos, deve-se implemetar o Comparable<Aula>, deu certo em String pois ela já o implementa, segue Exemplo:
+
+
+
+```Java
+public class Aula implements Comparable<Aula> {
+
+    // ... restante do código aqui
+
+    @Override
+    public int compareTo(Aula outraAula) {
+        return this.titulo.compareTo(outraAula.titulo);
+    }
+}
+
+```
+Adicionando Comparator para por mais uma camada de comaparação, no caso em tempo, segue método maior e menor.
+
+```Java
+Collections.sort(aulas, Comparator.comparing(Aula::getTempo));
+
+Collections.sort(Comparator.comparing(Aula::getTempo));;
+
+
+
+```
+
+
+
 
 
 
